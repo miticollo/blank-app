@@ -11,6 +11,7 @@
 		C152F83429BA2F5000A63B02 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F83329BA2F5000A63B02 /* ContentView.swift */; };
 		C152F83629BA2F5200A63B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C152F83529BA2F5200A63B02 /* Assets.xcassets */; };
 		C152F83929BA2F5200A63B02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C152F83829BA2F5200A63B02 /* Preview Assets.xcassets */; };
+		C172DF2B29BBA01300D92D09 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C172DF2A29BB9FF500D92D09 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		C152F83329BA2F5000A63B02 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C152F83529BA2F5200A63B02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C152F83829BA2F5200A63B02 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C172DF2A29BB9FF500D92D09 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C172DF2C29BBA01300D92D09 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C172DF2B29BBA01300D92D09 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +41,7 @@
 			children = (
 				C152F83029BA2F5000A63B02 /* BlankApp */,
 				C152F82F29BA2F5000A63B02 /* Products */,
+				C172DF2929BB9FF500D92D09 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +70,15 @@
 				C152F83829BA2F5200A63B02 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C172DF2929BB9FF500D92D09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C172DF2C29BBA01300D92D09 /* libsqlite3.0.tbd */,
+				C172DF2A29BB9FF500D92D09 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +292,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +328,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

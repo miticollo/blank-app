@@ -16,7 +16,7 @@ function pack_ipa_for_ios15() {
   printf "${RED}Remove signature applied by Xcode${NC}\n"
   codesign --remove-signature -v ./BlankApp.app
   printf "${RED}Sign bundle with identity ${1}${NC}\n"
-  codesign -s "${1}" --deep -v --entitlements ./ent.plist ./BlankApp.app
+  codesign --timestamp -s "${1}" --deep -v --entitlements ./ent.plist ./BlankApp.app
   printf "${RED}Pack bundle into IPA (for iOS 15)${NC}\n"
   mv -v ./BlankApp.app Payload
   zip -r ./AnForA15.ipa ./Payload
@@ -31,7 +31,7 @@ function pack_ipa_for_ios14() {
   plutil -replace 'MinimumOSVersion' -string '14.0' ./BlankApp.app/Info.plist
   plutil -extract 'MinimumOSVersion' raw -o - ./BlankApp.app/Info.plist
   printf "${RED}Sign bundle with identity ${1}${NC}\n"
-  codesign -s "${1}" --deep -v --entitlements ../ent.plist ./BlankApp.app
+  codesign --timestamp -s "${1}" --deep -v --entitlements ../ent.plist ./BlankApp.app
   cd ..
   printf "${RED}Pack bundle into IPA (for iOS 14)${NC}\n"
   zip -r ./AnForA14.ipa ./Payload

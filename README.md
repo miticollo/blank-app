@@ -12,12 +12,14 @@ It's important to notice that this is a simple app. If a developer team sets a s
    ```
 2. Open it with Xcode.
 3. Build it.
-4. After that discover path where build is located.
+4. After that discover path where `.app` directory is located.
 5. Run `build.sh` with the path of previous step.
 
 <p align="center">
   <img src="./images/xcode.png?raw=true" alt="Xcode">
 </p>
+
+The two IPAs are in the same folder of `.app` directory.
 
 ## Result
 

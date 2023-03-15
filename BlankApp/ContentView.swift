@@ -9,11 +9,14 @@ struct ContentView: View {
             VStack {
                 Text("AnForA").underline()
                     .font(thinFont)
-                Text("for iOS")
+                Text("for iOS").font(.system(size: 20, design: .monospaced))
                     .padding([.bottom], 20)
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Current model: ").bold() + Text(UIDevice.current.name)
                     Text("Current " + UIDevice.current.systemName + " version: ").bold() + Text(UIDevice.current.systemVersion)
+                    let isLoaded = dlopen("frida-agent.dylib", RTLD_NOW) != nil
+                    Text("Is ").bold() + Text("frida-agent.dylib").font(.system(.body, design: .monospaced)) + Text(" loaded? ") + Text(String(isLoaded).uppercased()).bold().foregroundColor(isLoaded ? .green : .red)
+                    
                 }.padding([.bottom], 80)
             }.background(
                 Image("Background").resizable().scaledToFill().blur(radius: 8)

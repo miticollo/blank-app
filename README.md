@@ -7,7 +7,7 @@ It's important to notice that this is a simple app.
 If a developer team sets a specific minimum iOS version it means that it requires some specific features that are not present in previous iOS versions.
 
 Furthermore after compiling it you can find in `build_trollstore` an IPA that you **must** install with [TrollStore](https://github.com/opa334/TrollStore). 
-The different with IPAs in `build` folder is that this can write out of its sandox.
+The different with IPAs in `build` folder is that this can write outside of its sandox.
 This is possible because I added `com.apple.private.security.no-sandbox` entitlement. 
 But you **can't** install an IPA with this entitlement using sideloadling because a third-party code can be run on iDevice **if and only if** Apple wants.
 In particular every app that you build with Xcode contains a [provisioning file](https://developer.apple.com/documentation/technotes/tn3125-inside-code-signing-provisioning-profiles).
@@ -15,6 +15,9 @@ This file contains what entitlements you can use for a specific app.
 Obviously these file are digitally signed so they can't be altered.
 Anyway you can create your provisioning file but you must enroll in the Apple Developer Program.
 This doesn't mean that you can use every possible entitlement.
+
+<span><!-- https://discord.com/channels/779134930265309195/944462595996405810/1087048714524315728 --></span>
+In general it's necessary to have a JB or certain types of exploits to use most entitlements.
 
 ## How to pack it into IPA?
 
@@ -27,18 +30,16 @@ This doesn't mean that you can use every possible entitlement.
 The IPAs are in `build*` directories.
 
 > **Warning**<br/>
-> In case you get a code signing error, open BlackApp.xcodeproj and edit the code signing options.
+> In case you get a code signing error, open `BlackApp.xcodeproj` and edit the code signing options.
 
 To clean build folders you can use `build.sh clean`.
 
 ## Result
 
-There are two screenshot for iPhone X because PongoOS KPF applies a patch that permits an app to be unsandboxed.
+There are two screenshot for iPhone X because the PongoOS KPF applies a patch that permits an app to be unsandboxed.
 
 iPhone X with iOS 16.3.1               |  iPhone X with iOS 16.3.1 + PongoOS KPF
 :-------------------------------------:|:---------------------------------------:
-![iPhoneX](./images/iphonex.png)       |  ![iPhoneSE](./images/iphonese.png)
-:-------------------------------------:|:---------------------------------------:
+![iPhoneX](./images/iphonex.png)       |  ![iPhoneXJB](./images/iphonexjb.png)
 iPhone XR with iOS 15.1b1 (TrollStore) |  iPhone SE 2020 with iOS 14.4.2 
-:-------------------------------------:|:---------------------------------------:
-![iPhoneX](./images/iphonex.png)       |  ![iPhoneSE](./images/iphonese.png)
+![iPhoneXR](./images/iphonexr.png)     |  ![iPhoneSE](./images/iphonese.png)

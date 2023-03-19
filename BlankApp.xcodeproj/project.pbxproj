@@ -11,7 +11,7 @@
 		C152F83429BA2F5000A63B02 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F83329BA2F5000A63B02 /* ContentView.swift */; };
 		C152F83629BA2F5200A63B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C152F83529BA2F5200A63B02 /* Assets.xcassets */; };
 		C152F83929BA2F5200A63B02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C152F83829BA2F5200A63B02 /* Preview Assets.xcassets */; };
-		C172DF2B29BBA01300D92D09 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C172DF2A29BB9FF500D92D09 /* libsqlite3.tbd */; };
+		C1963F3929C77CCA001F245C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C1963F3829C77CCA001F245C /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,8 +20,10 @@
 		C152F83329BA2F5000A63B02 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C152F83529BA2F5200A63B02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C152F83829BA2F5200A63B02 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C172DF2A29BB9FF500D92D09 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		C172DF2C29BBA01300D92D09 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		C1963F3129C74236001F245C /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
+		C1963F3729C775C9001F245C /* unsafe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = unsafe.entitlements; sourceTree = "<group>"; };
+		C1963F3829C77CCA001F245C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C1963F3A29C789BB001F245C /* safe.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = safe.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,7 +31,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C172DF2B29BBA01300D92D09 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,9 +40,12 @@
 		C152F82529BA2F5000A63B02 = {
 			isa = PBXGroup;
 			children = (
+				C1963F3A29C789BB001F245C /* safe.entitlements */,
+				C1963F3829C77CCA001F245C /* README.md */,
+				C1963F3729C775C9001F245C /* unsafe.entitlements */,
+				C1963F3129C74236001F245C /* build.sh */,
 				C152F83029BA2F5000A63B02 /* BlankApp */,
 				C152F82F29BA2F5000A63B02 /* Products */,
-				C172DF2929BB9FF500D92D09 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,15 +74,6 @@
 				C152F83829BA2F5200A63B02 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		C172DF2929BB9FF500D92D09 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C172DF2C29BBA01300D92D09 /* libsqlite3.0.tbd */,
-				C172DF2A29BB9FF500D92D09 /* libsqlite3.tbd */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1963F3929C77CCA001F245C /* README.md in Resources */,
 				C152F83929BA2F5200A63B02 /* Preview Assets.xcassets in Resources */,
 				C152F83629BA2F5200A63B02 /* Assets.xcassets in Resources */,
 			);
@@ -279,8 +275,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = safe.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"BlankApp/Preview Content\"";
 				DEVELOPMENT_TEAM = MS523TRG78;
 				ENABLE_PREVIEWS = YES;
@@ -300,6 +298,7 @@
 				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = it.uniupo.dsdf.BlankApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -315,8 +314,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = safe.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"BlankApp/Preview Content\"";
 				DEVELOPMENT_TEAM = MS523TRG78;
 				ENABLE_PREVIEWS = YES;
@@ -336,6 +337,7 @@
 				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = it.uniupo.dsdf.BlankApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

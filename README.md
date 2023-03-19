@@ -25,7 +25,12 @@ In general it's necessary to have a JB or certain types of exploits to use most 
    ```shell
    git clone --depth=1 -j8 https://github.com/miticollo/blank-app.git
    ```
-2. Run `build.sh`.
+2. `xcodebuild` is shipped with Xcode so if necessary you can set the following ENV to use a different Xcode release:
+   ```shell
+   # I use the latest
+   export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+   ``
+3. Run `build.sh`.
 
 The IPAs are in `build*` directories.
 
@@ -37,9 +42,10 @@ To clean build folders you can use `build.sh clean`.
 ## Result
 
 There are two screenshot for iPhone X because the PongoOS KPF applies a patch that permits an app to be unsandboxed.
+A similar output is expected also for iPhone XR without TrollStore but using IPA in `build` folder because the other can't be installed (see above).
 
 iPhone X with iOS 16.3.1               |  iPhone X with iOS 16.3.1 + PongoOS KPF
-:-------------------------------------:|:---------------------------------------:
-![iPhoneX](./images/iphonex.png)       |  ![iPhoneXJB](./images/iphonexjb.png)
+:-------------------------------------:|:-----------------------------------------:
+![iPhoneX](./screenshot/iphonex.png)   |  ![iPhoneXJB](./screenshot/iphonexjb.png)
 iPhone XR with iOS 15.1b1 (TrollStore) |  iPhone SE 2020 with iOS 14.4.2 
-![iPhoneXR](./images/iphonexr.png)     |  ![iPhoneSE](./images/iphonese.png)
+![iPhoneXR](./screenshot/iphonexr.png) |  ![iPhoneSE](./screenshot/iphonese.png)

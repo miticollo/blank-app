@@ -12,6 +12,7 @@
 		C152F83629BA2F5200A63B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C152F83529BA2F5200A63B02 /* Assets.xcassets */; };
 		C152F83929BA2F5200A63B02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C152F83829BA2F5200A63B02 /* Preview Assets.xcassets */; };
 		C1963F3929C77CCA001F245C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C1963F3829C77CCA001F245C /* README.md */; };
+		C1963F3C29C7C1D7001F245C /* screenshot in Resources */ = {isa = PBXBuildFile; fileRef = C1963F3B29C7C1D7001F245C /* screenshot */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C1963F3729C775C9001F245C /* unsafe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = unsafe.entitlements; sourceTree = "<group>"; };
 		C1963F3829C77CCA001F245C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C1963F3A29C789BB001F245C /* safe.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = safe.entitlements; sourceTree = "<group>"; };
+		C1963F3B29C7C1D7001F245C /* screenshot */ = {isa = PBXFileReference; lastKnownFileType = folder; path = screenshot; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		C152F82529BA2F5000A63B02 = {
 			isa = PBXGroup;
 			children = (
+				C1963F3B29C7C1D7001F245C /* screenshot */,
 				C1963F3A29C789BB001F245C /* safe.entitlements */,
 				C1963F3829C77CCA001F245C /* README.md */,
 				C1963F3729C775C9001F245C /* unsafe.entitlements */,
@@ -134,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1963F3C29C7C1D7001F245C /* screenshot in Resources */,
 				C1963F3929C77CCA001F245C /* README.md in Resources */,
 				C152F83929BA2F5200A63B02 /* Preview Assets.xcassets in Resources */,
 				C152F83629BA2F5200A63B02 /* Assets.xcassets in Resources */,

@@ -37,7 +37,6 @@ struct ContentView: View {
                     let isLoaded = dlopen("frida-agent.dylib", RTLD_NOW) != nil
                     Text("Is ").bold() + Text("frida-agent.dylib").font(.system(.body, design: .monospaced)) + Text(" loaded? ") + Text(String(isLoaded).uppercased()).bold().foregroundColor(isLoaded ? .green : .red)
                     let forbiddenPath = "/var/mobile/file.txt"
-
                     let success = createEmptyTextFile(atPath: forbiddenPath)
                     Text("Out of the box? ").bold() + Text(String(success).uppercased()).bold().foregroundColor(success ? .green : .red)
                 }.padding([.bottom], 80)

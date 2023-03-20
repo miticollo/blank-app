@@ -12,7 +12,7 @@ function clean() {
 }
 
 function build_for_ios_15() {
-  xcodebuild -verbose -sdk iphoneos -configuration Debug -scheme BlankApp -derivedDataPath build -destination 'generic/platform=iOS'
+  xcodebuild -verbose -sdk iphoneos -configuration Debug -scheme BlankApp -derivedDataPath build -destination 'generic/platform=iOS' -allowProvisioningUpdates
     
   printf "${RED}Pack bundle into IPA for iOS 15${NC}\n"
   mkdir -vp ./build/Build/Products/Debug-iphoneos/Payload
@@ -42,7 +42,7 @@ function build_for_ios_14() {
 }
 
 function build_for_trollstore() {
-  xcodebuild -verbose -sdk iphoneos -configuration Debug -scheme BlankApp -derivedDataPath build_trollstore -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  xcodebuild -verbose -sdk iphoneos -configuration Debug -scheme BlankApp -derivedDataPath build_trollstore -destination 'generic/platform=iOS' -allowProvisioningUpdates CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
     
   security find-identity -v -p codesigning
   read -p "SHA-1 hash (or name) of certificate: " sha1

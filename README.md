@@ -35,7 +35,7 @@ In general it's necessary to have a JB or certain types of exploits to use most 
    ```
 2. `xcodebuild` is shipped with Xcode so if necessary you can set the following ENV to use a different Xcode release:
    ```shell
-   # I use the latest
+   # I use the latest version of Xcode
    export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
    ```
 3. Run `build.sh`.

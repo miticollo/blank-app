@@ -37,7 +37,7 @@ In general it's necessary to have a JB or certain types of exploits to use most 
    ```shell
    # I use the latest
    export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
-   ``
+   ```
 3. Run `build.sh`.
 
 The IPAs are in `build*` directories.

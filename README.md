@@ -19,6 +19,14 @@ This doesn't mean that you can use every possible entitlement.
 <span><!-- https://discord.com/channels/779134930265309195/944462595996405810/1087048714524315728 --></span>
 In general it's necessary to have a JB or certain types of exploits to use most entitlements.
 
+> **Warning**<br>
+> <span><!-- https://sideloadly.io/#faq --></span>
+> Another limit with Free Apple Developer account is: `Your maximum App ID limit has been reached. You may create up to 10 App IDs every 7 days.`
+> This limit doesn't have a proper solution you can reuse a previously App ID, but you  **can't** install two apps with the same App ID.
+> This is a workaround.
+> After 7 days the oldest provisiong file will expire and you could use its App ID.
+> You can also create a new Apple ID.
+
 ## How to pack it into IPA?
 
 1. Clone this project:

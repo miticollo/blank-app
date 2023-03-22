@@ -53,7 +53,7 @@ In general it's necessary to have a JB or certain types of exploits to use most 
    - You **can't use** my developer team ID you must find yours.
      To do this you must download a provisioning file from Xcode (Preferences... > Accounts > Download Manual Profiles).
      <span><!-- https://guides.codepath.com/ios/Provisioning-Profiles --></span>
-     Now you will find the downloaded profile in `~/Library/MobileDevice/Provisioning/ Profiles/`.
+     Now you will find the downloaded profile in `~/Library/MobileDevice/Provisioning Profiles/`.
      To inspect `*.mobileprovision` you can use:
      <span><!-- https://stackoverflow.com/a/33813384 --></span>
      ```shell

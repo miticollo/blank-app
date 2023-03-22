@@ -25,7 +25,12 @@ In general it's necessary to have a JB or certain types of exploits to use most 
 > This limit doesn't have a proper solution you can reuse a previously App ID, but you  **can't** install two apps with the same App ID.
 > This is a workaround.
 > After 7 days the oldest provisiong file will expire and you could use its App ID.
-> You can also create a new Apple ID.
+> You can also create a new Apple ID.<br/>
+> Furthermore with a free account you have a maximum number of iDevice that you can register with your TEAM_ID.
+> And if you reach this limit `xcodebuild` complains: `Your development team has reached the maximum number of registered iPhone devices.`.<br/>
+> Lastly On iOS 10, 11, 12, 13, 14, 15, 16 and higher, you can only have 3 sideloaded apps installed on your device at the same time. 
+> Apple has limited this and will not allow any more for free Apple Developer accounts. 
+> A paid Apple Developer Account does not have such limitations.
 
 ## How to pack it into IPA?
 

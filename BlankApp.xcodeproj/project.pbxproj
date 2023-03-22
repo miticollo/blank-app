@@ -24,7 +24,6 @@
 		C1963F3129C74236001F245C /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		C1963F3729C775C9001F245C /* unsafe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = unsafe.entitlements; sourceTree = "<group>"; };
 		C1963F3829C77CCA001F245C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C1963F3A29C789BB001F245C /* safe.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = safe.entitlements; sourceTree = "<group>"; };
 		C1963F3B29C7C1D7001F245C /* screenshot */ = {isa = PBXFileReference; lastKnownFileType = folder; path = screenshot; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,7 +42,6 @@
 			isa = PBXGroup;
 			children = (
 				C1963F3B29C7C1D7001F245C /* screenshot */,
-				C1963F3A29C789BB001F245C /* safe.entitlements */,
 				C1963F3829C77CCA001F245C /* README.md */,
 				C1963F3729C775C9001F245C /* unsafe.entitlements */,
 				C1963F3129C74236001F245C /* build.sh */,
@@ -279,8 +277,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = safe.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"BlankApp/Preview Content\"";
@@ -318,8 +316,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = safe.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"BlankApp/Preview Content\"";

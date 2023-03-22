@@ -12,7 +12,22 @@ function clean() {
 }
 
 function build_for_ios_15() {
-  xcodebuild -verbose -sdk iphoneos -configuration Debug -scheme BlankApp -derivedDataPath build -destination 'generic/platform=iOS' -allowProvisioningUpdates
+  COMMON_ARGS=(
+    -verbose
+    -sdk iphoneos
+    -configuration Debug
+    -scheme BlankApp
+    -derivedDataPath build
+    -destination 'generic/platform=iOS'
+    -allowProvisioningUpdates -allowProvisioningDeviceRegistration
+  )
+
+  if [ $# -eq 2 ]; then
+    xcodebuild "${COMMON_ARGS[@]}" \
+      DEVELOPMENT_TEAM="${1}" PRODUCT_BUNDLE_IDENTIFIER="${2}"
+  else
+    xcodebuild "${COMMON_ARGS[@]}"
+  fi
     
   printf "${RED}Pack bundle into IPA for iOS 15${NC}\n"
   mkdir -vp ./build/Build/Products/Debug-iphoneos/Payload
@@ -33,7 +48,7 @@ function build_for_ios_14() {
   read -p "SHA-1 hash (or name) of certificate: " sha1
   
   printf "${RED}Sign bundle with identity ${sha1}${NC}\n"
-  codesign --force --sign "${sha1}" --verbose --deep --entitlements ./safe.entitlements --timestamp=none --generate-entitlement-der ./build/Build/Products/Debug-iphoneos/Payload/BlankApp.app
+  codesign --force --sign "${sha1}" --verbose --deep --entitlements ./build/Build/Intermediates.noindex/BlankApp.build/Debug-iphoneos/BlankApp.build/BlankApp.app.xcent --timestamp=none --generate-entitlement-der ./build/Build/Products/Debug-iphoneos/Payload/BlankApp.app
   
   printf "${RED}Pack bundle into IPA for iOS 14${NC}\n"
   cd ./build/Build/Products/Debug-iphoneos/
@@ -42,7 +57,23 @@ function build_for_ios_14() {
 }
 
 function build_for_trollstore() {
-  xcodebuild -verbose -sdk iphoneos -configuration Debug -scheme BlankApp -derivedDataPath build_trollstore -destination 'generic/platform=iOS' -allowProvisioningUpdates CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+    COMMON_ARGS=(
+    -verbose
+    -sdk iphoneos
+    -configuration Debug
+    -scheme BlankApp
+    -derivedDataPath build_trollstore
+    -destination 'generic/platform=iOS'
+    -allowProvisioningUpdates -allowProvisioningDeviceRegistration
+    CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  )
+
+  if [ $# -eq 2 ]; then
+    xcodebuild "${COMMON_ARGS[@]}" \
+      DEVELOPMENT_TEAM="${1}" PRODUCT_BUNDLE_IDENTIFIER="${2}"
+  else
+    xcodebuild "${COMMON_ARGS[@]}"
+  fi
     
   security find-identity -v -p codesigning
   read -p "SHA-1 hash (or name) of certificate: " sha1
@@ -59,14 +90,22 @@ function build_for_trollstore() {
 }
 
 function main() {
-  if [ "${1}" = "clean" ]; then
+  # Check if the user passed a "clean" subcommand
+  if [ "$1" == "clean" ]; then
     clean
     exit 0
   fi
 
-  build_for_ios_15
+  # Check if the user passed two arguments for building with custom settings
+  if [ $# -eq 2 ]; then
+    build_for_trollstore "${1}" "${2}"
+    build_for_ios_15 "${1}" "${2}"
+  else
+    build_for_trollstore
+    build_for_ios_15
+  fi
+  
   build_for_ios_14
-  build_for_trollstore
   
   exit 0
 }

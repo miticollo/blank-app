@@ -43,12 +43,24 @@ In general it's necessary to have a JB or certain types of exploits to use most 
    # I use the latest version of Xcode
    export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
    ```
-3. Run `build.sh`.
+3. <span id="uuid"></span>
+   Run
+   ```shell
+   ./build.sh <TEAM_ID> <BUNDLE_ID>
+   ```
+   To successfully compile it with a free developer account you must override two things.
+   - The `<BUNDLE_ID>` currently value is `it.uniupo.dsdf.BlankApp`. You can add a char or completely change this string. It's up to you!
+   - You **can't use** my developer team ID you must find yours.
+     To do this you must download a provisioning file from Xcode (Preferences... > Accounts > Download Manual Profiles).
+     <span><!-- https://guides.codepath.com/ios/Provisioning-Profiles --></span>
+     Now you will find the downloaded profile in `~/Library/MobileDevice/Provisioning/ Profiles/`.
+     To inspect `*.mobileprovision` you can use:
+     <span><!-- https://stackoverflow.com/a/33813384 --></span>
+     ```shell
+     security cms -D -i ~/Library/MobileDevice/Provisioning\ Profiles/<UUID>.mobileprovision | plutil -extract 'TeamIdentifier'.0 raw -o - -- -
+     ```
 
 The IPAs are in `build*` directories.
-
-> **Warning**<br/>
-> In case you get a code signing error, open `BlackApp.xcodeproj` and edit the code signing options.
 
 To clean build folders you can use `build.sh clean`.
 

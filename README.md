@@ -42,14 +42,13 @@ In general it's necessary to have a JB or certain types of exploits to use most 
    # I use the latest version of Xcode
    export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
    ```
-3. <span id="uuid"></span>
-   Run
+3. Run
    ```shell
    ./build.sh <TEAM_ID> <BUNDLE_ID>
    ```
    To successfully compile it with a free developer account you must override two things.
    - The `<BUNDLE_ID>` currently value is `it.uniupo.dsdf.BlankApp`. You can add a char or completely change this string. It's up to you!
-   - You **can't use** my developer team ID you must find yours.
+   - You **can't use** my developer team ID you must find yours (see [here](https://github.com/miticollo/test-appium#team-id)).
 
 The IPAs are in `build*` directories.
 

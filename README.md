@@ -5,7 +5,7 @@ To run this app, you will need an iOS device with version 15.0 or later.
 However, you can install the app on an iOS 14 device by modifying the `MinimumOSVersion` property in the `Info.plist file.
 
 > **Warning**<br/>
-> This information is valid up to commit .
+> This information is valid up to commit [456a1e4](https://github.com/miticollo/blank-app/commit/456a1e4bc0f31344fe22b4b7864a5b54d45ae9fe).
 > After this commit, the app will still install on an iOS 14 device, but it will crash when you try to open it.
 > Upon investigation, I discovered that the problem lies with the Divider() component.
 > Although I am unsure of the reason, removing the `Divider()` component will allow the app to run on an iOS 14 device: compiling for iOS 15 and changing the `MinimumOSVersion` property as described above.

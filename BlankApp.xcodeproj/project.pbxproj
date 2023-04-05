@@ -11,8 +11,6 @@
 		C152F83429BA2F5000A63B02 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152F83329BA2F5000A63B02 /* ContentView.swift */; };
 		C152F83629BA2F5200A63B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C152F83529BA2F5200A63B02 /* Assets.xcassets */; };
 		C152F83929BA2F5200A63B02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C152F83829BA2F5200A63B02 /* Preview Assets.xcassets */; };
-		C1963F3929C77CCA001F245C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C1963F3829C77CCA001F245C /* README.md */; };
-		C1963F3C29C7C1D7001F245C /* screenshot in Resources */ = {isa = PBXBuildFile; fileRef = C1963F3B29C7C1D7001F245C /* screenshot */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,8 +133,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1963F3C29C7C1D7001F245C /* screenshot in Resources */,
-				C1963F3929C77CCA001F245C /* README.md in Resources */,
 				C152F83929BA2F5200A63B02 /* Preview Assets.xcassets in Resources */,
 				C152F83629BA2F5200A63B02 /* Assets.xcassets in Resources */,
 			);
@@ -280,7 +276,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 20230402;
 				DEVELOPMENT_ASSET_PATHS = "\"BlankApp/Preview Content\"";
 				DEVELOPMENT_TEAM = MS523TRG78;
 				ENABLE_PREVIEWS = YES;
@@ -291,13 +287,14 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = it.uniupo.dsdf.BlankApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -319,7 +316,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 20230402;
 				DEVELOPMENT_ASSET_PATHS = "\"BlankApp/Preview Content\"";
 				DEVELOPMENT_TEAM = MS523TRG78;
 				ENABLE_PREVIEWS = YES;
@@ -330,13 +327,14 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = it.uniupo.dsdf.BlankApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

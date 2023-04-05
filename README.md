@@ -1,15 +1,39 @@
 # blank-app
 
-This app is an experiment. 
-I have configured the `MinimumOSVersion` property with the value `15.0`, so this app requires iOS 15 or later.
-However, if you modify the `MinimumOSVersion` property inside the `Info.plist` file, you can install the app on iOS 14 as well.
+This app is an experimental project.
+To run this app, you will need an iOS device with version 15.0 or later.
+However, you can install the app on an iOS 14 device by modifying the `MinimumOSVersion` property in the `Info.plist file.
 
-It is important to note that if a developer team sets a specific minimum iOS version, it means that the app requires certain features that are not present in previous iOS versions.
+> **Warning**<br/>
+> This information is valid up to commit .
+> After this commit, the app will still install on an iOS 14 device, but it will crash when you try to open it.
+> Upon investigation, I discovered that the problem lies with the Divider() component.
+> Although I am unsure of the reason, removing the `Divider()` component will allow the app to run on an iOS 14 device: compiling for iOS 15 and changing the `MinimumOSVersion` property as described above.
+> It is worth noting that the `Divider() component was introduced in iOS 13, not iOS 15.
 
-After compiling the app, you will find an IPA file in the `build_trollstore` folder, which you **must** install with [TrollStore](https://github.com/opa334/TrollStore). 
-The difference with IPAs in the `build` folder is that this IPA can write outside of its sandbox. 
-I added the `com.apple.private.security.no-sandbox` entitlement to make this possible. 
-However, you **can't** install an IPA with this entitlement using sideloading because a third-party code can only be run on an iDevice if and only if Apple approves it.
+It is important to keep in mind that setting a minimum iOS version for the app means that the app requires certain features that are not available in earlier versions of iOS.
+
+After compiling the app, you will find three IPA files in the `build folder:
+- `AnForA14.ipa` for iOS 14 and later.
+- `AnForA15.ipa` for iOS 15 and later.
+- `AnForA.tipa` for iOS versions that support [TrollStore](https://github.com/opa334/TrollStore) because they are vulnerable to [CoreTrust (CT) bug](https://worthdoingbadly.com/coretrust/).
+
+<span><!-- https://discord.com/channels/349243932447604736/688126462066163756/1091172915208265768 --></span>
+The `tipa` extension is preferred by AirDrop, as AirDrop does not transfer IPA files.
+
+> **Note**<br/>
+> The `AnForA.tipa` file **cannot be sideloaded**, as it has the `com.apple.private.security.no-sandbox` entitlement, which allows it to write outside its sandbox.
+> When you open the app, it will attempt to create (or overwrite) an empty file in `/var/mobile/file.txt`.
+> If this is successful, you will see “YES” next to the question “Can I write files outside my own sandbox directory?”
+> To see the sandbox path, look for the "Documents folder in my sandbox directory".
+> If the app is unable to write outside its sandbox, an error message will be produced, which can be read using `idevicedebug:
+> ```shell
+> idevicedebug -ddd run it.uniupo.dsdf.BlankApp
+> ```
+> The error message will read out:
+> ```text
+> Error creating file: You don’t have permission to save the file “file.txt” in the folder “mobile”.
+> ```
 
 Every app that you build with Xcode contains a [provisioning file](https://developer.apple.com/documentation/technotes/tn3125-inside-code-signing-provisioning-profiles) which specifies the entitlements that can be used for a specific app.
 These files are digitally signed, so they can't be altered.
@@ -44,23 +68,77 @@ In general it's necessary to have a JB or certain types of exploits to use most 
    ```
 3. Run
    ```shell
-   ./build.sh <TEAM_ID> <BUNDLE_ID>
+   ./build.sh
    ```
-   To successfully compile it with a free developer account you must override two things.
-   - The `<BUNDLE_ID>` currently value is `it.uniupo.dsdf.BlankApp`. You can add a char or completely change this string. It's up to you!
-   - You **can't use** my developer team ID you must find yours (see [here](https://github.com/miticollo/test-appium#team-id)).
+   Note that in order to compile it with a free developer account, you must override the `DEVELOPMENT_TEAM` variable using the `--certificate` option. 
+   The `--certificate` option requires **the full name** of your certificate. 
+   You can find it using the following command:
+   ```shell
+   security find-identity -p codesigning -v
+   ```
+   See also [here](https://github.com/miticollo/test-appium#team-id).
 
-The IPAs are in `build*` directories.
+The IPAs are in `build` directory.
 
-To clean build folders you can use `build.sh clean`.
+To clean build folders you can use `./build.sh -c`.
 
 ## Result
 
-There are two screenshot for iPhone X because the PongoOS KPF applies a patch that permits an app to be unsandboxed.
-A similar output is expected also for iPhone XR without TrollStore but using IPA in `build` folder because the other can't be installed (see above).
+There are two screenshots available for the iPhone XR, highlighting two key differences. 
+The first difference is the bundleID, while the second is the app’s ability to write outside its sandbox. 
+The app with the bundleID `it.moo.BlankApp` was installed through sideloading, whereas the other app was installed through TrollStore.
 
-iPhone X with iOS 16.3.1               |  iPhone X with iOS 16.3.1 + PongoOS KPF
-:-------------------------------------:|:-----------------------------------------:
-![iPhoneX](./screenshot/iphonex.png)   |  ![iPhoneXJB](./screenshot/iphonexjb.png)
-iPhone XR with iOS 15.1b1 (TrollStore) |  iPhone SE 2020 with iOS 14.4.2 
-![iPhoneXR](./screenshot/iphonexr.png) |  ![iPhoneSE](./screenshot/iphonese.png)
+A similar output is expected for the iPhone X. 
+However, in this case, the app can only write outside its sandbox if iOS is in a jailbroken state. 
+<span><!-- https://discord.com/channels/779134930265309195/944462595996405810/1087120624129941737 --></span>
+This is because the PongoOS KPF applies a patch that permits it.
+
+iPhone XR with iOS 15.1b1 (TrollStore)       |  iPhone XR with iOS 15.1b1
+:-------------------------------------------:|:-----------------------------------------:
+![iPhoneXRTS](./screenshot/iphonexrts.png)   |  ![iPhoneXR](./screenshot/iphonexr.png)
+iPhone 14 Pro Max with iOS 16.2 (simulator)  |  iPhone SE 2020 with iOS 14.4.2 
+![iPhoneXR](./screenshot/simulator.png)      |  ![iPhoneSE](./screenshot/iphonese.png)
+
+> **Note**<br>
+> In the simulator screenshot, you can see that it has its own folder in the macOS filesystem: `~/Library/Developer/CoreSimulator/Devices/<DEVICE-ID>. 
+> So, can we use a simulator device for AnForA? 
+> Before answering this question, we must ask ourselves: how can we create and set up a simulator?
+> 1. Download a runtime (e.g. for iOS 16.1) using [`xcodes`](https://github.com/RobotsAndPencils/xcodes).
+>    ```shell
+>    xcodes runtimes install 'iOS 16.1'
+>    ```
+> 2. Verify that the installation was successful.
+>    ```shell
+>    xcrun -v simctl runtime list -v
+>    ```
+> 3. Create a new device.
+>    ```shell
+>    xcrun -v simctl create 'AnForA' 'iPhone 14 Pro Max' 'iOS16.1'
+>    ```
+>    Save the `<DEVICE-ID>` returned by this command.
+> 4. Boot the device.
+>    ```shell
+>    xcrun -v simctl boot 'F74E321C-CCEE-499E-9617-6409D41CDE60'
+>    ```
+> 5. Open Simulator app to interact with simulator we have just created.
+>    ```shell
+>    open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/
+>    ```
+> 6. Install the Session app.
+>    ```shell
+>    ipatool --verbose download -b 'com.loki-project.loki-messenger' --purchase
+>    unzip ./com.loki-project.loki-messenger_1470168868_v2.2.9_561.ipa
+>    xcrun -v simctl install 'F74E321C-CCEE-499E-9617-6409D41CDE60' ./Payload/Session.app
+>    ```
+> 7. Do your things.
+> 8. Shutdown **ALL** devices.
+>    ```shell
+>    xcrun -v simctl shutdown all
+>    ```
+> 9. Delete the device we just created.
+>    ```shell
+>    xcrun -v simctl delete 'AnForA'
+>    ```
+>
+> Now we can return to the main question: can we use a simulator device for AnForA?
+> Maybe, but to be sure, I need a Mac with M1 or M2.

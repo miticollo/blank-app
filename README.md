@@ -141,4 +141,5 @@ iPhone 14 Pro Max with iOS 16.2 (simulator)           |  iPhone SE 2020 with iOS
 >    ```
 >
 > Now we can return to the main question: can we use a simulator device for AnForA?
-> Maybe, but to be sure, I need a Mac with M1 or M2.
+> The answer is **NO**. 
+> The reason for this limitation is currently unknown for me and requires further investigation.

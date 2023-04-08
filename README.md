@@ -93,11 +93,11 @@ However, in this case, the app can only write outside its sandbox if iOS is in a
 <span><!-- https://discord.com/channels/779134930265309195/944462595996405810/1087120624129941737 --></span>
 This is because the PongoOS KPF applies a patch that permits it.
 
-iPhone XR with iOS 15.1b1 (TrollStore)       |  iPhone XR with iOS 15.1b1
-:-------------------------------------------:|:-----------------------------------------:
-![iPhoneXRTS](./screenshot/iphonexrts.png)   |  ![iPhoneXR](./screenshot/iphonexr.png)
-iPhone 14 Pro Max with iOS 16.2 (simulator)  |  iPhone SE 2020 with iOS 14.4.2 
-![iPhoneXR](./screenshot/simulator.png)      |  ![iPhoneSE](./screenshot/iphonese.png)
+iPhone XR with iOS 15.1b1 (TrollStore)                |  iPhone XR with iOS 15.1b1
+:----------------------------------------------------:|:------------------------------------------------:
+![iPhoneXRTS](./screenshot/iphonexrts.png?raw=true)   |  ![iPhoneXR](./screenshot/iphonexr.png?raw=true)
+iPhone 14 Pro Max with iOS 16.2 (simulator)           |  iPhone SE 2020 with iOS 14.4.2 
+![iPhoneXR](./screenshot/simulator.png?raw=true)      |  ![iPhoneSE](./screenshot/iphonese.png?raw=true)
 
 > **Note**<br>
 > In the simulator screenshot, you can see that it has its own folder in the macOS filesystem: `~/Library/Developer/CoreSimulator/Devices/<DEVICE-ID>. 

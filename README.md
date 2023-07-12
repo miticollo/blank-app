@@ -2,7 +2,7 @@
 
 This app is an experimental project.
 To run this app, you will need an iOS device with version 15.0 or later.
-However, you can install the app on an iOS 14 device by modifying the `MinimumOSVersion` property in the `Info.plist file.
+However, you can install the app on an iOS 14 device by modifying the `MinimumOSVersion` property in the `Info.plist` file.
 
 > **Warning**<br/>
 > This information is valid up to commit [456a1e4](https://github.com/miticollo/blank-app/commit/456a1e4bc0f31344fe22b4b7864a5b54d45ae9fe).
